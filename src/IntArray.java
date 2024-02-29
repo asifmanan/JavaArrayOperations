@@ -19,11 +19,17 @@ public class IntArray {
 
     }
     public int get(int index){
-        if(index >= 0 && index <= this.size -1){
+        if(index >= 0 && index <= this.size - 1){
             return this.array[index];
         }
-
         throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+    }
 
+    public void removeIndex(int index){
+        if(index >= 0 && index <= this.size - 1){
+            this.array[index] = 0;
+            return;
+        }
+        throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
     }
 }
