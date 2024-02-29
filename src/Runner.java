@@ -29,6 +29,7 @@ public class Runner {
         arr.add(2);
         System.out.println("Item at index(2): " + arr.get(2));
         System.out.println("Found at index: " + arr.find(2));
+        System.out.println("Found at index (From startIndex 1): " + arr.find(0,1));
     }
 
 
