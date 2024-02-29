@@ -16,18 +16,25 @@ public class IntArray {
             return true;
         }
         return false;
-
+    }
+//  Validate index method
+    private boolean indexIsValid(int index){
+//      Check if value of index is between 0 and size)
+        if(index >= 0 && index <= this.size - 1){
+            return true;
+        }
+        return false;
     }
 //  Method for retrieving an item
     public int get(int index){
-        if(index >= 0 && index <= this.size - 1){
+        if(indexIsValid(index)){
             return this.array[index];
         }
         throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
     }
 //  Method for removing an item at a specified index
     public void removeIndex(int index){
-        if(index >= 0 && index <= this.size - 1){
+        if(indexIsValid(index)){
             this.array[index] = 0;
             return;
         }
@@ -39,7 +46,7 @@ public class IntArray {
     }
 //  Method for finding at item starting from a specified index value
     public int find(int item, int startIndex){
-        if(startIndex > 0 && startIndex <= this.size - 1){
+        if(indexIsValid(startIndex)){
             for(int index = startIndex; index <= size -1; index++){
                 if(this.array[index] == item){
                     return index;
