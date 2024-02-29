@@ -34,9 +34,14 @@ public class IntArray {
     }
 
     public int find(int item){
-        for(int index = 0; index <= size - 1; index++){
-            if(this.array[index] == item){
-                return index;
+        return find(item, 0);
+    }
+    public int find(int item, int startIndex){
+        if(startIndex > 0 && startIndex <= this.size - 1){
+            for(int index = startIndex; index <= size -1; index++){
+                if(this.array[index] == item){
+                    return index;
+                }
             }
         }
         return -1;
