@@ -10,7 +10,7 @@ public class IntArray {
     }
 
     public boolean add(int item){
-        if(index < size-1){
+        if(index <= size-1){
             this.array[index] = item;
             this.index++;
             return true;
@@ -31,5 +31,14 @@ public class IntArray {
             return;
         }
         throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+    }
+
+    public int find(int item){
+        for(int index = 0; index <= size - 1; index++){
+            if(this.array[index] == item){
+                return index;
+            }
+        }
+        return -1;
     }
 }
