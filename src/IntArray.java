@@ -18,7 +18,7 @@ public class IntArray {
         return false;
     }
 //  Validate index method
-    private boolean indexIsValid(int index){
+    private boolean isIndexValid(int index){
 //      Check if value of index is between 0 and size)
         if(index >= 0 && index <= this.size - 1){
             return true;
@@ -27,14 +27,14 @@ public class IntArray {
     }
 //  Method for retrieving an item
     public int get(int index){
-        if(indexIsValid(index)){
+        if(isIndexValid(index)){
             return this.array[index];
         }
         throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
     }
 //  Method for removing an item at a specified index
     public void removeIndex(int index){
-        if(indexIsValid(index)){
+        if(isIndexValid(index)){
             this.array[index] = 0;
             return;
         }
@@ -46,7 +46,7 @@ public class IntArray {
     }
 //  Method for finding at item starting from a specified index value
     public int find(int item, int startIndex){
-        if(indexIsValid(startIndex)){
+        if(isIndexValid(startIndex)){
             for(int index = startIndex; index <= size -1; index++){
                 if(this.array[index] == item){
                     return index;
@@ -54,5 +54,18 @@ public class IntArray {
             }
         }
         return -1;
+    }
+    public void findMultiple(int item){
+        String indexString = "";
+        int startIndex = 0;
+        int index = 0;
+        while(index != -1){
+            index = find(item,startIndex);
+            System.out.println("Found at index: "+index);
+//            if(indexString.isEmpty()){
+//                indexString = indexString + "," + index;
+//            }
+            startIndex = index + 1;
+        }
     }
 }
