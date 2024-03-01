@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Runner {
     public static void main(String[] args) {
 //        findMethodTest();
@@ -34,12 +36,17 @@ public class Runner {
     }
     public static void findMultipleTest(){
         IntArray arr = new IntArray(5);
-        arr.add(1);
-        arr.add(2);
-        arr.add(2);
         arr.add(3);
-        arr.add(2);
-        arr.findMultiple(2);
+        arr.add(1);
+        arr.add(3);
+        arr.add(3);
+        arr.add(3);
+        int[] result = arr.findMultiple(3);
+        System.out.println(Arrays.toString(result));
+        result = arr.findMultiple(1);
+        System.out.println(Arrays.toString(result));
+        result = arr.findMultiple(2);
+        System.out.println(Arrays.toString(result));
     }
 
 

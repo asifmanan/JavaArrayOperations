@@ -55,17 +55,32 @@ public class IntArray {
         }
         return -1;
     }
-    public void findMultiple(int item){
+    public int[] findMultiple(int item){
         String indexString = "";
         int startIndex = 0;
-        int index = 0;
-        while(index != -1){
-            index = find(item,startIndex);
-            System.out.println("Found at index: "+index);
-//            if(indexString.isEmpty()){
-//                indexString = indexString + "," + index;
-//            }
-            startIndex = index + 1;
+        int index = find(item,startIndex);
+        if(index != -1) {
+            indexString += index;
+        } else {
+            System.out.println("Item not found, returning [-1]");
+            return new int[]{-1};
         }
+        while(index != -1){
+            System.out.println("Found at index: "+index);
+            startIndex = index + 1;
+            index = find(item,startIndex);
+            if(index != -1) {
+                indexString += "," + index;
+            }
+        }
+        return csvToArray(indexString);
+    }
+    private int[] csvToArray(String csv){
+        String[] stringElements = csv.split(",");
+        int[] intElements = new int[stringElements.length];
+        for(int i = 0; i < intElements.length; i++){
+            intElements[i] = Integer.parseInt(stringElements[i]);
+        }
+        return intElements;
     }
 }
