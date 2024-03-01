@@ -2,13 +2,26 @@ import java.util.Arrays;
 
 public class Runner {
     public static void main(String[] args) {
-//        findMethodTest();
+        System.out.println("*".repeat(8)+" Add Method Test "+"*".repeat(8));
+        addMethodTest();
+        System.out.println("#".repeat(4));
+
+        System.out.println("*".repeat(8)+" Remove Method Test "+"*".repeat(8));
+        removeMethodTest();
+        System.out.println("#".repeat(4));
+
+        System.out.println("*".repeat(8)+" Find Method Test "+"*".repeat(8));
+        findMethodTest();
+        System.out.println("#".repeat(4));
+
+        System.out.println("*".repeat(8)+" FindMultiple Test "+"*".repeat(8));
         findMultipleTest();
+        System.out.println("#".repeat(4));
     }
 
     public static void addMethodTest(){
         IntArray arr = new IntArray(2);
-//        arr.add(1);
+        arr.add(1);
         arr.add(2);
         System.out.println(arr.get(0));
         System.out.println(arr.get(1));
