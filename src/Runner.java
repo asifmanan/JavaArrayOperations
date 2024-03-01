@@ -1,6 +1,7 @@
 public class Runner {
     public static void main(String[] args) {
-        findMethodTest();
+//        findMethodTest();
+        findMultipleTest();
     }
 
     public static void addMethodTest(){
@@ -30,6 +31,15 @@ public class Runner {
         System.out.println("Item at index(2): " + arr.get(2));
         System.out.println("Found at index: " + arr.find(2));
         System.out.println("Found at index (From startIndex 1): " + arr.find(0,1));
+    }
+    public static void findMultipleTest(){
+        IntArray arr = new IntArray(5);
+        arr.add(1);
+        arr.add(2);
+        arr.add(2);
+        arr.add(3);
+        arr.add(2);
+        arr.findMultiple(2);
     }
 
 
