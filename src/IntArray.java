@@ -55,16 +55,20 @@ public class IntArray {
         }
         return -1;
     }
+//  Method for finding multiple occurrence of an item and returns an array
+//  of indexes at which the item was found, returns [-1] if not found.
+//  This function uses the find() method and builds a csv string of indexes at
+//  which the item was found. The csv string is then converted to an integer array
+//  using csvToArray() method.
     public int[] findMultiple(int item){
         String indexString = "";
         int startIndex = 0;
         int index = find(item,startIndex);
-        if(index != -1) {
-            indexString += index;
-        } else {
+        if(index == -1) {
             System.out.println("Item not found, returning [-1]");
             return new int[]{-1};
         }
+        indexString += index;
         while(index != -1){
             System.out.println("Found at index: "+index);
             startIndex = index + 1;
@@ -75,6 +79,7 @@ public class IntArray {
         }
         return csvToArray(indexString);
     }
+//  This is a supporting method for find multiple, its just prepares the return value
     private int[] csvToArray(String csv){
         String[] stringElements = csv.split(",");
         int[] intElements = new int[stringElements.length];
